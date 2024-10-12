@@ -1,0 +1,5 @@
+{
+  "database-client.telemetry.usesOnlineServices": false,
+  "database-client.defaultSelectLimit": 1000,
+  "database-client.terminalLocation": "Panel"
+}

@@ -1,0 +1,44 @@
+query TransactionsQuery($_gte: bigint, $_lte: bigint) {
+  fungible_asset_activities(
+    where: { transaction_version: { _gte: $_gte, _lte: $_lte } }
+  ) {
+    amount
+    asset_type
+    metadata {
+      decimals
+      name
+      symbol
+      token_standard
+      asset_type
+    }
+    transaction_version
+    is_transaction_success
+    owner_address
+    type
+    event_index
+    token_standard
+  }
+}
+
+query TransactionQuery($_eq: bigint) {
+  fungible_asset_activities(
+    where: { transaction_version: { _eq: $_eq } }
+    order_by: { event_index: asc }
+  ) {
+    amount
+    asset_type
+    metadata {
+      decimals
+      name
+      symbol
+      token_standard
+      asset_type
+    }
+    transaction_version
+    is_transaction_success
+    owner_address
+    type
+    event_index
+    token_standard
+  }
+}

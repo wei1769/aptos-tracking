@@ -1,0 +1,37 @@
+[package]
+edition = "2021"
+name = "aptos-tracking"
+version = "0.1.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+ahash = "0.8.11"
+aptos-sdk = {git = "https://github.com/aptos-labs/aptos-core", branch = "main"}
+arrayref = "0.3.9"
+base58 = "0.2.0"
+derive_more = {version = "1.0.0", features = ["full"]}
+dotenvy = "0.15.7"
+futures = "0.3.30"
+graphql_client = {version = "0.14.0", features = ["reqwest"]}
+log = {version = "0.4.22", features = ["std", "max_level_info"]}
+pretty_env_logger = "0.5.0"
+rayon = "1.10.0"
+reqwest = {version = "0.11.27", features = ["json"]}
+rust_decimal = "1.36.0"
+sea-orm = {version = "1.0.1", features = ["sqlx-mysql", "runtime-tokio-rustls", "macros", "runtime-tokio"]}
+sea-query = "0.31.0"
+semver = "1.0.23"
+serde = {version = "1.0.210", features = ["derive"]}
+serde_json = "1.0.128"
+teloxide = {version = "0.12.2", features = ["macros"]}
+tokio = {version = "1.40.0", features = ["macros", "rt-multi-thread"]}
+url = "2.5.2"
+[patch.crates-io]
+merlin = {git = "https://github.com/aptos-labs/merlin"}
+x25519-dalek = {git = "https://github.com/aptos-labs/x25519-dalek", branch = "zeroize_v1"}
+
+[dependencies.sqlx]
+features = ["runtime-tokio-rustls"]
+version = "*"
